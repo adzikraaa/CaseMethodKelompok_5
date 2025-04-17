@@ -11,6 +11,6 @@ public matakuliah (String kodeMK, String namaMk, int sks){
     }
     
     public void tampilmk() {
-        System.out.println("kodeMK: " + kodeMK + ", NamaMK: " + namaMK + "Jumlah SKS"+ sks);
+        System.out.println("kode MK: " + kodeMK + "| Nama: " + namaMK + " | SKS"+ sks);
     }
 }
