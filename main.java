@@ -33,7 +33,7 @@ public class main {
                 case 2:
                     System.out.println("Daftar Mata Kuliah:");
                     for (matakuliah mk : daftarMatakuliah) {
-                        mk.tampilmk();
+                        mk.tampilMk();
                     }
                     break;
 
