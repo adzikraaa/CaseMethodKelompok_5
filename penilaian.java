@@ -15,7 +15,7 @@ public class penilaian {
         return (tugas * 0.3) + (uts * 0.3) + (uas * 0.4);
     }
 
-    public void tampil() {
+    public void tampilnilai() {
         System.out.println("NIM: " + Mahasiswa.nim +
                            ", Nama: " + Mahasiswa.nama +
                            ", MK: " + MataKuliah.namaMK +

@@ -11,20 +11,25 @@ public class main {
 
         do {
             System.out.println("\nMenu:");
-            System.out.println("1. Tampilkan Semua Data");
-            System.out.println("2. Urutkan berdasarkan Nilai Akhir");
-            System.out.println("3. Cari Mahasiswa berdasarkan NIM");
-            System.out.println("4. Keluar");
+            System.out.println("1. Tampilkan Daftar Mahasiswa");
+            System.out.println("2. Tampilkan Daftar Mata Kuliah");
+            System.out.println("3. Tampilkan Data Penilaian");
+            System.out.println("4. Urutkan Mahasiswa Berdasarkan Nilai Akhir");
+            System.out.println("5. Urutkan Mahasiswa Berdasarkan NIM");
+            System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = sc.nextInt();
 
             switch (pilihan) {
-                case 1 -> tampilkanData();
-                case 2 -> {
+                case 1 : System.out.println("daftar mahasiswa");
+                for (mahasiswa m : isiData()) {
+                    m.tampil();
+                }
+                case 2 : {
                     bubbleSortNilaiAkhir();
                     tampilkanData();
                 }
-                case 3 -> {
+                case 3 : {
                     System.out.print("Masukkan NIM: ");
                     String cariNIM = sc.next();
                     cariMahasiswa(cariNIM);
@@ -51,18 +56,11 @@ public class main {
         daftarNilai[4] = new penilaian(m3, mk3, 80, 90, 65);
     }
 
-    static void tampilkanData() {
-        for (penilaian n : daftarNilai) {
-            if (n != null) {
-                n.tampil();
-            }
-        }
-    }
-
     static void bubbleSortNilaiAkhir() {
         for (int i = 0; i < daftarNilai.length - 1; i++) {
             for (int j = 0; j < daftarNilai.length - i - 1; j++) {
-                if (daftarNilai[j] == null || daftarNilai[j + 1] == null) continue;
+                if (daftarNilai[j] == null || daftarNilai[j + 1] == null)
+                    continue;
                 if (daftarNilai[j].hitungNilaiAkhir() < daftarNilai[j + 1].hitungNilaiAkhir()) {
                     penilaian temp = daftarNilai[j];
                     daftarNilai[j] = daftarNilai[j + 1];
@@ -77,7 +75,7 @@ public class main {
         boolean ditemukan = false;
         for (penilaian n : daftarNilai) {
             if (n != null && n.Mahasiswa.nim.equals(nim)) {
-                n.tampil();
+                n.tampilnilai();
                 ditemukan = true;
             }
         }
