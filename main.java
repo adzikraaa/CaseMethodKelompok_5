@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class main {
     static penilaian[] daftarNilai = new penilaian[10];
+    static mahasiswa[] daftarMahasiswa = new mahasiswa[3];
+    static matakuliah[] daftarMatakuliah = new matakuliah[3];
 
     public static void main(String[] args) {
         isiData();
@@ -15,29 +17,53 @@ public class main {
             System.out.println("2. Tampilkan Daftar Mata Kuliah");
             System.out.println("3. Tampilkan Data Penilaian");
             System.out.println("4. Urutkan Mahasiswa Berdasarkan Nilai Akhir");
-            System.out.println("5. Urutkan Mahasiswa Berdasarkan NIM");
+            System.out.println("5. Cari Mahasiswa Berdasarkan NIM");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = sc.nextInt();
 
             switch (pilihan) {
-                case 1 : System.out.println("daftar mahasiswa");
-                for (mahasiswa m : isiData()) {
-                    m.tampil();
-                }
-                case 2 : {
+                case 1:
+                    System.out.println("Daftar Mahasiswa:");
+                    for (mahasiswa m : daftarMahasiswa) {
+                        m.tampil();
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Daftar Mata Kuliah:");
+                    for (matakuliah mk : daftarMatakuliah) {
+                        mk.tampilmk();
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Data Penilaian:");
+                    for (penilaian p : daftarNilai) {
+                        if (p != null)
+                            p.tampilnilai();
+                    }
+                    break;
+
+                case 4:
                     bubbleSortNilaiAkhir();
-                    tampilkanData();
-                }
-                case 3 : {
+                    break;
+
+                case 5:
                     System.out.print("Masukkan NIM: ");
                     String cariNIM = sc.next();
                     cariMahasiswa(cariNIM);
-                }
-                case 4 -> System.out.println("Terima kasih!");
-                default -> System.out.println("Menu tidak valid!");
+                    break;
+
+                case 0:
+                    System.out.println("Terima kasih!");
+                    break;
+
+                default:
+                    System.out.println("Menu tidak valid!");
+                    break;
             }
-        } while (pilihan != 4);
+        } while (pilihan != 0);
     }
 
     static void isiData() {
@@ -45,9 +71,17 @@ public class main {
         mahasiswa m2 = new mahasiswa("22002", "Budi Santoso", "TI");
         mahasiswa m3 = new mahasiswa("22003", "Citra Dewi", "Mesin");
 
+        daftarMahasiswa[0] = m1;
+        daftarMahasiswa[1] = m2;
+        daftarMahasiswa[2] = m3;
+
         matakuliah mk1 = new matakuliah("MK001", "Struktur Data", 3);
         matakuliah mk2 = new matakuliah("MK002", "Basis Data", 3);
         matakuliah mk3 = new matakuliah("MK003", "Desain Web", 2);
+
+        daftarMatakuliah[0] = mk1;
+        daftarMatakuliah[1] = mk2;
+        daftarMatakuliah[2] = mk3;
 
         daftarNilai[0] = new penilaian(m1, mk1, 80, 85, 90);
         daftarNilai[1] = new penilaian(m1, mk2, 60, 75, 70);
@@ -69,6 +103,9 @@ public class main {
             }
         }
         System.out.println("Data berhasil diurutkan berdasarkan nilai akhir (descending).");
+        for (penilaian p : daftarNilai) {
+            if (p != null) p.tampilnilai();
+        }
     }
 
     static void cariMahasiswa(String nim) {
