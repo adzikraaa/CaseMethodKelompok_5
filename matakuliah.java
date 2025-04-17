@@ -9,4 +9,7 @@ public matakuliah (String kodeMK, String namaMk, int sks){
     this.namaMK = namaMK;
     this.sks = sks;
     }
+    public void tampil() {
+        System.out.println("kodeMK: " + kodeMK + ", NamaMK: " + namaMK + "Jumlah SKS"+ sks);
+    }
 }
