@@ -12,7 +12,7 @@ public class main {
         int pilihan;
 
         do {
-            System.out.println("\nMenu:");
+            System.out.println("\n === MENU SISTEM AKADEMIK ===");
             System.out.println("1. Tampilkan Daftar Mahasiswa");
             System.out.println("2. Tampilkan Daftar Mata Kuliah");
             System.out.println("3. Tampilkan Data Penilaian");
@@ -102,9 +102,9 @@ public class main {
                 }
             }
         }
-        System.out.println("Data berhasil diurutkan berdasarkan nilai akhir (descending).");
         for (penilaian p : daftarNilai) {
-            if (p != null) p.tampilnilai();
+            if (p != null)
+                p.tampilnilai();
         }
     }
 

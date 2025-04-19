@@ -8,7 +8,7 @@ public class mahasiswa {
     }
 
     public void tampil() {
-        System.out.println("NIM: " + nim + ", Nama: " + nama + "Prodi"+ prodi);
+        System.out.println("NIM: " + nim + " | Nama: " + nama + " | Prodi: "+ prodi);
     }
 }
 

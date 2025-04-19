@@ -3,7 +3,7 @@ public class penilaian {
     matakuliah MataKuliah;
     double tugas, uts, uas;
 
-    public penilaian (mahasiswa mahasiswa, matakuliah mataKuliah, double tugas, double uts, double uas) {
+    public penilaian(mahasiswa mahasiswa, matakuliah mataKuliah, double tugas, double uts, double uas) {
         this.Mahasiswa = mahasiswa;
         this.MataKuliah = mataKuliah;
         this.tugas = tugas;
@@ -16,12 +16,6 @@ public class penilaian {
     }
 
     public void tampilnilai() {
-        System.out.println("NIM: " + Mahasiswa.nim +
-                           ", Nama: " + Mahasiswa.nama +
-                           ", MK: " + MataKuliah.namaMK +
-                           ", Tugas: " + tugas +
-                           ", UTS: " + uts +
-                           ", UAS: " + uas +
-                           ", NA: " + hitungNilaiAkhir());
+        System.out.println(Mahasiswa.nama + "   |   " + MataKuliah.namaMK + "  | Nilai Akhir: " + hitungNilaiAkhir());
     }
 }
